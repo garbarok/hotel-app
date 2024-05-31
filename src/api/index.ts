@@ -2,7 +2,7 @@ import axios from 'axios'
 import { WeatherData, Geocoding } from '@/types'
 
 const apiInstance = axios.create({
-  baseURL: 'http://api.openweathermap.org',
+  baseURL: 'https://api.openweathermap.org',
 })
 
 interface getObjectProps {

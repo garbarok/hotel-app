@@ -17,7 +17,7 @@ export const useWeather = () => {
 
   useEffect(() => {
     if (status === 'idle' || status === 'failed') {
-      dispatch(fetchWeather(city))
+      dispatch(fetchWeather(city) as any)
     }
   }, [city, dispatch, status])
 

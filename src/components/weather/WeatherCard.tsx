@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { useDispatch, useSelector } from 'react-redux'
 import { Card, CardContent } from '../ui/card'
 import {
   fetchWeather,
@@ -15,13 +14,14 @@ import { getItem, setItem } from '@/lib/local-storage'
 import CityInput from './CityInput'
 import WeatherDetails from './WeatherDetails'
 import StatusMessage from './StatusMessage'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 
 const WeatherCard: React.FC = () => {
-  const dispatch = useDispatch()
-  const city = useSelector(selectCity)
-  const weatherData = useSelector(selectWeatherData)
-  const status = useSelector(selectWeatherStatus)
-  const error = useSelector(selectWeatherError)
+  const dispatch = useAppDispatch()
+  const city = useAppSelector(selectCity)
+  const weatherData = useAppSelector(selectWeatherData)
+  const status = useAppSelector(selectWeatherStatus)
+  const error = useAppSelector(selectWeatherError)
   const [newCity, setNewCity] = useState('')
 
   const { refetch } = useQuery({

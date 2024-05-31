@@ -18,7 +18,7 @@ const initialState: WeatherState = {
   error: null,
 }
 
-export const fetchWeather = createAsyncThunk(
+export const fetchWeather = createAsyncThunk<WeatherData, string>(
   'weather/fetchWeather',
   async (city: string) => {
     const coordinates: Geocoding[] = await fetchCoordinates({ city })
